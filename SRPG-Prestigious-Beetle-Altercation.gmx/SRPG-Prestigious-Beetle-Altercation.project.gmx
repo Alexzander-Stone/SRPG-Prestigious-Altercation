@@ -8,11 +8,13 @@
   <sprites name="sprites">
     <sprite>sprites\player_controlled_character</sprite>
     <sprite>sprites\spr_grid_default</sprite>
+    <sprite>sprites\spr_pointer</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
   <objects name="objects">
     <object>objects\obj_grid_default</object>
+    <object>objects\obj_pointer</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\testing</room>
