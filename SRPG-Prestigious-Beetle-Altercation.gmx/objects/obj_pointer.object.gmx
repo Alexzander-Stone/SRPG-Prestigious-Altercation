@@ -78,16 +78,16 @@ if(downCheck)
 }
 
 if( y &gt; next_position_y ){ // Gravitate up.
-    y -= sprite_width/10;
+    y -= sprite_width&gt;&gt;4;
 }
 if( y &lt; next_position_y ){ // Gravitate down.
-    y += sprite_width/10;
+    y += sprite_width&gt;&gt;4;
 }
 if( x &gt; next_position_x ){ // Gravitate left.
-    x -= sprite_height / 10;
+    x -= sprite_height&gt;&gt;4;
 }
 if( x &lt; next_position_x ){ // Gravitate right.
-    x += sprite_height / 10;
+    x += sprite_height&gt;&gt;4;
 }
 </string>
           </argument>
@@ -112,16 +112,16 @@ if( x &lt; next_position_x ){ // Gravitate right.
             <string>/// Move View
 // Move screen if cursor goes beyond view.
 if(x + sprite_width &gt; view_xview[0] + view_wview[0]) { // Move camera right
-    view_xview[0] += sprite_width/10;
+    view_xview[0] += sprite_width&gt;&gt;4;
 }
 if(x &lt; view_xview[0]) { // Move camera left
-    view_xview[0] -= sprite_width/10;
+    view_xview[0] -= sprite_width&gt;&gt;4;
 }
 if(y + sprite_height &gt; view_yview[0] + view_hview[0]) { // Move camera down
-    view_yview[0] += sprite_height/10;
+    view_yview[0] += sprite_height&gt;&gt;4;
 }
 if(y &lt; view_yview[0]) { // Move camera up
-    view_yview[0] -= sprite_height/10;
+    view_yview[0] -= sprite_height&gt;&gt;4;
 }
 
 </string>
