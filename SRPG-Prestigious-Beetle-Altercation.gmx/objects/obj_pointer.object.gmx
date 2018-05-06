@@ -55,10 +55,10 @@ next_position_y = y;
           <argument>
             <kind>1</kind>
             <string>/// Move Pointer
-leftCheck = keyboard_check_pressed(ord('A'));
-rightCheck = keyboard_check_pressed(ord('D'));
-upCheck = keyboard_check_pressed(ord('W'));
-downCheck = keyboard_check_pressed(ord('S'));
+leftCheck = keyboard_check_pressed(ord('A')) &amp;&amp; (next_position_x-512 &gt;= 0);
+rightCheck = keyboard_check_pressed(ord('D')) &amp;&amp; (next_position_x+512 &lt; room_width);
+upCheck = keyboard_check_pressed(ord('W')) &amp;&amp; (next_position_y-512 &gt;= 0);
+downCheck = keyboard_check_pressed(ord('S')) &amp;&amp; (next_position_y+512 &lt; room_height);
 
 if(leftCheck)
 {
