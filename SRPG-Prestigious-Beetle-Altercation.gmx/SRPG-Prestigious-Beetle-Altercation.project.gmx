@@ -15,7 +15,6 @@
   <objects name="objects">
     <object>objects\obj_grid_default</object>
     <object>objects\obj_pointer</object>
-    <object>objects\obj_variable</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\testing</room>
