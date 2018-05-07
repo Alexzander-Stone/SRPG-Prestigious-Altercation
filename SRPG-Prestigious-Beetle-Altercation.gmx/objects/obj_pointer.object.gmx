@@ -171,21 +171,27 @@ if(y &lt; view_yview[0]) { // Move camera up
           <argument>
             <kind>1</kind>
             <string>/// Select Commands
+
+// Only allow one command per tick.
+command_used = false
+
 // Find the object to interact with.
 interact_player_id = instance_position(x, y, obj_player_character_default);
 
 
-// End moving.
-if( keyboard_check_pressed(vk_space) &amp;&amp; moving &amp;&amp; selected_id) {
+
+// End moving on empty space.
+if( keyboard_check_pressed(vk_space) &amp;&amp; moving &amp;&amp; selected_id &amp;&amp; (!interact_player_id || interact_player_id == selected_id) ) {
     selected_id.x = next_position_x;
     selected_id.y = next_position_y;
         
     moving = false;
+    command_used = true;
 }
 
 // Hovering over an 
 if( interact_player_id ) {
-    if( keyboard_check_pressed(vk_space) &amp;&amp; !moving ) {
+    if( keyboard_check_pressed(vk_space) &amp;&amp; !moving &amp;&amp; !command_used) {
         selected_id = interact_player_id
         
         moving = true;
