@@ -3,7 +3,7 @@
   <spriteName>spr_pointer</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-1</depth>
+  <depth>-10</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -32,6 +32,12 @@ y = 0;
 // Used for gradual camera movement.
 next_position_x = x;
 next_position_y = y;
+
+// Currently selected object.
+selected_id = noone
+
+// Move Playable Characters
+moving = false
 </string>
           </argument>
         </arguments>
@@ -54,12 +60,32 @@ next_position_y = y;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Move Pointer
+            <string>///Keyboard Input
 leftCheck = keyboard_check_pressed(ord('A')) &amp;&amp; (next_position_x-512 &gt;= 0);
 rightCheck = keyboard_check_pressed(ord('D')) &amp;&amp; (next_position_x+512 &lt; room_width);
 upCheck = keyboard_check_pressed(ord('W')) &amp;&amp; (next_position_y-512 &gt;= 0);
 downCheck = keyboard_check_pressed(ord('S')) &amp;&amp; (next_position_y+512 &lt; room_height);
-
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Move Pointer
 if(leftCheck)
 {
     next_position_x -= 512;
@@ -124,6 +150,47 @@ if(y &lt; view_yview[0]) { // Move camera up
     view_yview[0] -= sprite_height&gt;&gt;4;
 }
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Select Commands
+// Find the object to interact with.
+interact_player_id = instance_position(x, y, obj_player_character_default);
+
+
+// End moving.
+if( keyboard_check_pressed(vk_space) &amp;&amp; moving &amp;&amp; selected_id) {
+    selected_id.x = next_position_x;
+    selected_id.y = next_position_y;
+        
+    moving = false;
+}
+
+// Hovering over an 
+if( interact_player_id ) {
+    if( keyboard_check_pressed(vk_space) &amp;&amp; !moving ) {
+        selected_id = interact_player_id
+        
+        moving = true;
+    }
+}
 </string>
           </argument>
         </arguments>
