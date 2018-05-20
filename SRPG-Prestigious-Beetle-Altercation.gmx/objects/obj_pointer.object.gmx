@@ -86,20 +86,16 @@ downCheck = keyboard_check_pressed(ord('S')) &amp;&amp; (next_position_y+512 &lt
           <argument>
             <kind>1</kind>
             <string>/// Move Pointer
-if(leftCheck)
-{
+if(leftCheck) {
     next_position_x -= 512;
 }
-if(rightCheck)
-{
+if(rightCheck) {
     next_position_x += 512;
 }
-if(upCheck)
-{
+if(upCheck) {
     next_position_y -= 512;
 }
-if(downCheck)
-{
+if(downCheck) {
     next_position_y += 512;
 }
 
@@ -193,6 +189,9 @@ if( keyboard_check_pressed(vk_space) &amp;&amp; moving &amp;&amp; selected_id &a
 if( interact_player_id ) {
     if( keyboard_check_pressed(vk_space) &amp;&amp; !moving &amp;&amp; !command_used) {
         selected_id = interact_player_id
+        
+        // Create the indicators for potential movement options.
+        scr_create_movement_indicator(selected_id.x, selected_id.y, selected_id.move_distance, sprite_width);
         
         moving = true;
     }
