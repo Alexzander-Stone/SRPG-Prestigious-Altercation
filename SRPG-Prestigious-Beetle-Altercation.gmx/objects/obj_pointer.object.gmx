@@ -173,11 +173,16 @@ command_used = false
 
 // Find the object to interact with.
 interact_player_id = instance_position(x, y, obj_player_character_default);
-
+movement_indicator_id = instance_position(x, y, obj_movement_indicator);
 
 
 // End moving on empty space.
-if( keyboard_check_pressed(vk_space) &amp;&amp; moving &amp;&amp; selected_id &amp;&amp; (!interact_player_id || interact_player_id == selected_id) ) {
+if( keyboard_check_pressed(vk_space) &amp;&amp; moving &amp;&amp; selected_id &amp;&amp; (!interact_player_id || interact_player_id == selected_id) &amp;&amp; movement_indicator_id) {
+    // Delete the movement indicators.
+    for( i = 0; i &lt; array_length_1d(indicators); i++) {
+        instance_destroy(indicators[i]);
+    }
+
     selected_id.x = next_position_x;
     selected_id.y = next_position_y;
         
@@ -185,13 +190,13 @@ if( keyboard_check_pressed(vk_space) &amp;&amp; moving &amp;&amp; selected_id &a
     command_used = true;
 }
 
-// Hovering over an 
+// Hovering over a unit.
 if( interact_player_id ) {
     if( keyboard_check_pressed(vk_space) &amp;&amp; !moving &amp;&amp; !command_used) {
         selected_id = interact_player_id
         
         // Create the indicators for potential movement options.
-        scr_create_movement_indicator(selected_id.x, selected_id.y, selected_id.move_distance, sprite_width);
+        indicators = scr_create_movement_indicator(selected_id.x, selected_id.y, selected_id.move_distance, sprite_width);
         
         moving = true;
     }
