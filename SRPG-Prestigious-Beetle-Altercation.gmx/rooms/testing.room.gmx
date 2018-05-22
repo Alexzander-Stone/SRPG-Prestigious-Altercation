@@ -119,6 +119,7 @@
     <instance objName="obj_player_character_default" x="512" y="0" name="inst_89E468AA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_player_character_default" x="2048" y="1536" name="inst_3D9595D0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_player_character_default" x="512" y="3072" name="inst_BFFE8698" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_player_character_move3" x="3072" y="512" name="inst_3D1D64E9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

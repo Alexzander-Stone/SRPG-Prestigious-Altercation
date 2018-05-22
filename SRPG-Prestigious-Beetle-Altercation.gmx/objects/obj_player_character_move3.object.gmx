@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>-2</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>obj_player_character_default</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>/// Constructor
-move_distance = 1
+move_distance = 3
 </string>
           </argument>
         </arguments>

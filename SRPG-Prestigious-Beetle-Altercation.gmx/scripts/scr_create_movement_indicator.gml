@@ -27,9 +27,9 @@ for(column = argument1 - (argument2*argument3); column <= argument1; column+= ar
 }
 
 // Go from the bottom-most square to the middle using the width/height and max movement number.
-number_of_squares -=3;
-for(column = argument1 + (argument2*argument3); column > argument1; column-= argument3) {
+number_of_squares-= argument2 + 1;
 
+for(column = argument1 + (argument2*argument3); column > argument1; column-= argument3) {
     for(row = number_of_squares-1; row >= 0; row--) {
         if(row == 0) { // Middle square
             id_array[current_index++] = instance_create(argument0, column, obj_movement_indicator);

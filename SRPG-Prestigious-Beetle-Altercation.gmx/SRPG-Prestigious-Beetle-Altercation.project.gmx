@@ -21,6 +21,7 @@
     <object>objects\obj_grid_default</object>
     <object>objects\obj_pointer</object>
     <object>objects\obj_player_character_default</object>
+    <object>objects\obj_player_character_move3</object>
     <object>objects\obj_movement_indicator</object>
   </objects>
   <rooms name="rooms">
